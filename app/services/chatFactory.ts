@@ -1,5 +1,5 @@
-const { chatGpt } = require('./services/openai');
-const { chatAnthropic } = require('./services/anthropic');
+import chatGpt from './openai.ts';
+import chatAnthropic from './anthropic.ts';
 
 const chatFactory = (client) => {
     if (client.toLowerCase() === 'anthropic') {
@@ -9,4 +9,4 @@ const chatFactory = (client) => {
     }
 };
 
-module.exports = { chatFactory };
+export default chatFactory;

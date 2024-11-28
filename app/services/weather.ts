@@ -1,10 +1,10 @@
-const axios = require('axios');
+import axios from 'axios';
 
 const queryWeather = async (zip) => {
     try {
         const response = await axios.get('https://api.weatherapi.com/v1/forecast.json', {
             params: {
-                key: process.env.WEATHER_API_KEY,
+                key: Deno.env.get('WEATHER_API_KEY'),
                 q: zip,
                 days: 1,
                 aqi: 'no',
@@ -26,4 +26,4 @@ const queryWeather = async (zip) => {
     }
 };
 
-module.exports = { queryWeather };
+export default queryWeather;

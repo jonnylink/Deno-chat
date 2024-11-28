@@ -1,12 +1,12 @@
-const { Anthropic } = require('@anthropic-ai/sdk');
+import { Anthropic } from 'anthropic';
 
 const anthropic = new Anthropic({
-    apiKey: process.env.ANTHROPIC_API_KEY
+    apiKey: Deno.env.get('ANTHROPIC_API_KEY')
 });
 
 const chatAnthropic = async (message) => {
     const response = await anthropic.messages.create({
-        model: process.env.ANTHROPIC_MODEL || 'claude-3-5-haiku-20241022',
+        model: Deno.env.get('ANTHROPIC_MODEL') || 'claude-3-5-haiku-20241022',
         max_tokens: 1024,
         messages: [{
             role: 'user',
@@ -17,4 +17,5 @@ const chatAnthropic = async (message) => {
     return response.content[0].text;
 };
 
-module.exports = { chatAnthropic };
+export default chatAnthropic;
+

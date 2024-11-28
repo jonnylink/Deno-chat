@@ -1,13 +1,13 @@
-# ChatGPT Wrapper
-A super simple Node.js wrapper for OpenAI's ChatGPT and Anthropic's Claude APIs for Fun™
+# Chat Wrapper
+A super simple deno server wrapper for OpenAI's ChatGPT and Anthropic's Claude APIs for Fun™
 
 By Default ChatGPT is used.
 
 ## Setup
 1. Clone the repository.
-2. Run `yarn install`.
+2. Run `deno install`.
 3. Create a `.env` file by copying the `.env.example` file and updating the values.
-4. Run `yarn start`
+4. Run `deno task start`
 
 ## Requirements
 1. ChatGPT API key
@@ -30,7 +30,7 @@ Send a POST request to `/chat` with a JSON body:
 
 ### What to wear
 To get advice on what to wear today:
-Send a GET request to `/what-to-wear`
+Send a GET request to `/what-to-wear?zip=YOUR-ZIP-CODE`
 
 ### Zen koan
 To get a zen koan:

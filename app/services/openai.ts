@@ -1,16 +1,14 @@
-const { OpenAI } = require('openai');
+import { OpenAI } from 'openai';
 
-const openai = new OpenAI({
-    apiKey: process.env.OPENAI_API_KEY,
-});
+const openai = new OpenAI();
 
 const chatGpt = async (message) => {
     const response = await openai.chat.completions.create({
-        model: process.env.OPENAI_MODEL || 'gpt-4o-mini',
+        model: Deno.env.get('OPENAI_MODEL') || 'gpt-4o-mini',
         messages: [{ role: 'user', content: message }],
     });
 
     return response.choices[0].message.content;
 };
 
-module.exports = { chatGpt };
+export default chatGpt;
